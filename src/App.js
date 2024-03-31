@@ -16,7 +16,7 @@ function App() {
       {isLoggedIn ? (
         <MainPage />
       ) : (
-        <Login onLogin={handleLogin} /> // onLogin 콜백 함수를 전달
+        <Login onLogin={handleLogin} /> // onLogin 콜백 함수를 전달 변경
       )}
     </div>
   );
