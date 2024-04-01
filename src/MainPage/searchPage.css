@@ -1,0 +1,36 @@
+/* SearchPage.css */
+
+.search-page {
+    padding: 20px;
+}
+
+.input-container {
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #dcdcdc;
+    padding-bottom: 10px;
+}
+
+.input-field {
+    flex: 1;
+    padding: 10px;
+    margin-right: 10px;
+    border: none;
+    border-bottom: 1px solid #ccc;
+    font-size: 16px;
+}
+
+.search-results {
+    border: 1px solid #dcdcdc;
+    max-height: calc(100vh - 140px);
+    overflow-y: auto;
+}
+
+.search-item {
+    padding: 10px;
+    cursor: pointer;
+}
+
+.search-item:hover {
+    background-color: #f0f0f0;
+}

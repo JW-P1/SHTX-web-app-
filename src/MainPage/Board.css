@@ -1,0 +1,48 @@
+/* Board.css */
+
+.board {
+  padding: 20px;
+}
+
+.input-container {
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid #dcdcdc;
+  padding-bottom: 10px;
+}
+
+.input-field {
+  flex: 1;
+  padding: 10px;
+  margin-right: 10px;
+  border: none;
+}
+
+.recent-search {
+  border: 1px solid #dcdcdc;
+  max-height: calc(100vh - 140px); /* 화면 전체 높이에서 검색창과 버튼 영역의 높이를 빼줍니다. */
+  overflow-y: auto;
+}
+
+.search-item {
+  padding: 10px;
+  cursor: pointer;
+}
+
+.search-item:hover {
+  background-color: #f0f0f0;
+}
+
+.start-matching-button {
+  background-color: transparent;
+  color: #000;
+  border: none;
+  border-radius: 0;
+  padding: 10px 20px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.start-matching-button:hover {
+  background-color: #f0f0f0;
+}

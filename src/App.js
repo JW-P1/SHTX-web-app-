@@ -1,6 +1,10 @@
+// App.js
+
 import React, { useState } from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Login from './Login/login.js';
-import MainPage from './MainPage/mainPage.js'; // MainPage 컴포넌트도 필요한 경우 import합니다.
+import MainPage from './MainPage/mainPage.js';
+import SearchPage from './MainPage/searchPage';
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -11,14 +15,12 @@ function App() {
   };
 
   return (
-    <div className="App">
-      {/* 로그인 상태에 따라 다른 컴포넌트 렌더링 */}
-      {isLoggedIn ? (
-        <MainPage />
-      ) : (
-        <Login onLogin={handleLogin} /> // onLogin 콜백 함수를 전달 변경
-      )}
-    </div>
+    <Router>
+      <Routes>
+        <Route path="/" element={isLoggedIn ? <MainPage /> : <Login onLogin={handleLogin} />} />
+        <Route path="/search" element={<SearchPage />} />
+      </Routes>
+    </Router>
   );
 }
 
