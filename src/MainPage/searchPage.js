@@ -7,25 +7,21 @@ function SearchPage() {
   const [searchResults, setSearchResults] = useState([]);
   const [error, setError] = useState('');
 
-  const handleInputChange = (e) => {
-    setQuery(e.target.value);
-  };
+  const handleInputChange = async (e) => {
+    const inputValue = e.target.value;
+    setQuery(inputValue);
 
-  const fetchSearchResults = async () => {
     try {
-      const response = await axios.get(`http://localhost:4000/search?query=${encodeURIComponent(query)}`);
+      const response = await axios.get(`http://localhost:4000/search?query=${encodeURIComponent(inputValue)}`);
       if (response.status !== 200) {
         throw new Error('Failed to fetch search results');
       }
       const data = response.data;
-      console.log(data);
       setSearchResults(data.results);
-      console.log(searchResults);
       setError('');
     } catch (error) {
       console.error('Error fetching search results:', error);
       setSearchResults([]);
-      
       setError('Error fetching search results. Please try again later.');
     }
   };
@@ -38,11 +34,10 @@ function SearchPage() {
         onChange={handleInputChange}
         placeholder="Enter search query..."
       />
-      <button onClick={fetchSearchResults}>Search</button>
       {error && <p className="error">{error}</p>}
       <ul className="search-results">
-      {searchResults?.map((result, index) => (
-        <li key={index}>{result.name}</li>
+        {searchResults.map((result, index) => (
+          <li key={index}>{result.name}</li>
         ))}
       </ul>
     </div>

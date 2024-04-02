@@ -12,6 +12,7 @@
     "cors": "^2.8.5",
     "expo-cli": "^6.3.10",
     "express": "^4.19.2",
+    "mysql2": "^3.9.3",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.22.3",
