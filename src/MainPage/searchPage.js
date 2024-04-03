@@ -12,7 +12,7 @@ function SearchPage() {
     setQuery(inputValue);
 
     try {
-      const response = await axios.get(`http://localhost:4000/search?query=${encodeURIComponent(inputValue)}`);
+      const response = await axios.get(`http://localhost:4002/search?query=${encodeURIComponent(inputValue)}`);
       if (response.status !== 200) {
         throw new Error('Failed to fetch search results');
       }

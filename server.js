@@ -3,7 +3,7 @@ const path = require('path');
 const app = express();
 const cors = require('cors');
 const axios = require('axios');
-const PORT = 4000;
+const PORT = 4002;
 
 app.use(cors());
 app.use(express.urlencoded({ extended: true }));
@@ -39,6 +39,6 @@ app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname, 'build', 'index.html'));
 });
 
-app.listen(PORT, () => {
+app.listen(PORT, '0.0.0.0' ,() => {
   console.log(`Server is running on port ${PORT}`);
 });
