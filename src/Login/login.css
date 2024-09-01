@@ -1,50 +1,67 @@
-/* Login.css */
+/* 콘테이너를 화면의 가운데로 정렬 */
+html, body {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
+/* 기본 스타일 */
 .login-container {
-    width: 300px;
-    margin: auto;
-    padding: 20px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    background-color: #1c1c1c; /* 검정색 배경 */
-    color: white; /* 글자 색상을 흰색으로 설정 */
+  max-width: 400px;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #f0f0f0; /* 배경색 회색 */
+}
+
+.login-container h1 {
+  text-align: center;
+}
+
+.login-container div {
+  margin-bottom: 10px;
+}
+
+.login-container label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+.login-container input[type="text"],
+.login-container input[type="password"] {
+  width: 100%;
+  padding: 8px;
+  font-size: 16px;
+}
+
+.login-container button {
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  background-color: #333; /* 버튼 배경색 연한 검정색 */
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.login-container button:hover {
+  background-color: #555; /* 마우스 호버시 색상 변화 */
+}
+
+.login-container a {
+  display: block;
+  text-align: center;
+  margin-top: 10px;
+  color: #033a76;
+}
+
+/* 작은 화면에 대한 스타일 */
+@media only screen and (max-width: 600px) {
+  .login-container {
+    max-width: 300px;
   }
-  
-  .login-container h1 {
-    margin-bottom: 20px;
-    color: #00ff00; /* 유튜브 그린 색상 */
-  }
-  
-  .login-container label {
-    display: block;
-    margin-bottom: 10px;
-  }
-  
-  .login-container input {
-    width: 100%;
-    padding: 8px;
-    margin-bottom: 10px;
-    border: 1px solid #ccc;
-    border-radius: 3px;
-  }
-  
-  .login-container input[type="text"],
-  .login-container input[type="password"] {
-    background-color: #333; /* 검정색 입력 필드 */
-    color: white; /* 흰색 글자 */
-  }
-  
-  .login-container button {
-    width: 100%;
-    padding: 10px;
-    background-color: #00ff00; /* 유튜브 그린 색상 */
-    color: white;
-    border: none;
-    border-radius: 3px;
-    cursor: pointer;
-  }
-  
-  .login-container button:hover {
-    background-color: #33ff33; /* 더 밝은 그린 색상 */
-  }
-  
+}
+
+

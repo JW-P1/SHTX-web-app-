@@ -10,11 +10,20 @@
     "axios": "^1.6.8",
     "body-parser": "^1.20.2",
     "cors": "^2.8.5",
+    "expo": "^51.0.0",
     "expo-cli": "^6.3.10",
+    "expo-router": "^3.5.23",
     "express": "^4.19.2",
+    "express-session": "^1.18.0",
+    "jsonwebtoken": "^9.0.2",
+    "metro": "^0.80.10",
+    "metro-core": "^0.80.10",
+    "metro-react-native-babel-preset": "^0.77.0",
+    "mysql": "^2.18.1",
+    "mysql-server": "^1.0.5",
     "mysql2": "^3.9.3",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
     "react-router-dom": "^6.22.3",
     "react-scripts": "5.0.1",
     "web-vitals": "^2.1.4"
@@ -42,5 +51,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "@expo/cli": "^0.18.29"
   }
 }

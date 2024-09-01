@@ -1,9 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import { GoogleMap, LoadScript, Marker } from '@react-google-maps/api';
 import './map.css';
 
 function MapWithCurrentLocation() {
-  const [currentLocation, setCurrentLocation] = useState(null);
+  const [currentLocation, setCurrentLocation] = useState({ lat: 33.450701, lng: 126.570667 }); // 기본 좌표 설정
   const [map, setMap] = useState(null);
 
   useEffect(() => {
@@ -22,33 +21,45 @@ function MapWithCurrentLocation() {
     }
   }, []);
 
-  // 내 위치를 지도 중심으로 설정하는 함수
+  useEffect(() => {
+    // 지도 API 로드
+    const script = document.createElement('script');
+    script.src = `//dapi.kakao.com/v2/maps/sdk.js?appkey=84938a3d101dcfe481dcf72d7fdbbee4&autoload=false`;
+    script.async = true;
+    document.head.appendChild(script);
+
+    script.onload = () => {
+      window.kakao.maps.load(() => {
+        const container = document.getElementById('map'); // 지도를 표시할 div
+        const options = {
+          center: new window.kakao.maps.LatLng(currentLocation.lat, currentLocation.lng),
+          level: 3
+        };
+        const kakaoMap = new window.kakao.maps.Map(container, options); // 지도 생성
+        setMap(kakaoMap);
+
+        // 현재 위치 마커 추가
+        const markerPosition = new window.kakao.maps.LatLng(currentLocation.lat, currentLocation.lng);
+        const marker = new window.kakao.maps.Marker({
+          position: markerPosition
+        });
+        marker.setMap(kakaoMap);
+      });
+    };
+
+    return () => script.remove(); // 컴포넌트가 언마운트될 때 스크립트 제거
+  }, [currentLocation]);
+
   const handleCenterButtonClick = () => {
     if (map && currentLocation) {
-      map.panTo(currentLocation);
+      const moveLatLon = new window.kakao.maps.LatLng(currentLocation.lat, currentLocation.lng);
+      map.panTo(moveLatLon);
     }
-  };
-
-  // 구글 지도의 기본 UI 컨트롤을 비활성화하는 옵션 설정
-  const mapOptions = {
-    disableDefaultUI: true,
   };
 
   return (
     <div className="map-container">
-      <LoadScript googleMapsApiKey="YOUR_API_KEY">
-        <GoogleMap
-          className="google-map"
-          mapContainerStyle={{ width: '100%', height: '100%' }}
-          zoom={13}
-          center={currentLocation || { lat: 0, lng: 0 }}
-          options={mapOptions} // 구글 지도 옵션 설정
-          onLoad={(map) => setMap(map)} // 지도가 로드될 때 호출되는 함수
-        >
-          {currentLocation && <Marker position={currentLocation} />}
-        </GoogleMap>
-      </LoadScript>
-      {/* 내 위치를 가운데로 고정하는 버튼 */}
+      <div id="map" style={{ width: '100%', height: '400px' }}></div>
       <button className="center-button" onClick={handleCenterButtonClick}>
         내 위치로 이동
       </button>

@@ -1,22 +1,41 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
+import axios from 'axios'; // axios 라이브러리 import
+import { useNavigate } from 'react-router-dom'; // useNavigate import 추가
 import './login.css';
 
 function Login({ onLogin }) {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
+  const navigate = useNavigate(); // useNavigate 훅 사용
   const [error, setError] = useState('');
 
-  const handleLogin = () => {
-    // 여기서는 간단하게 유효성 검사만 수행합니다. 실제로는 서버와 통신하여 로그인을 처리해야 합니다.
-    if (username === 'user' && password === 'password') {
-      onLogin(); // 로그인 상태를 변경하는 콜백 함수 호출
-    } else {
-      setError('Invalid username or password');
+  const handleLogin = async () => {
+    try {
+      const response = await axios.post('/login', {
+        username,
+        password
+      });
+
+      console.log(response.status);
+      console.log(response.data);
+
+      if (response.status === 200) {
+        console.log('Login successful');
+        onLogin();
+
+        navigate('/')
+      } else {
+        setError('Invalid username or password');
+      }
+    } catch (error) {
+      console.error('Error logging in:', error);
+      setError('Error logging in');
     }
   };
 
   return (
-    <div className="login-container"> {/* CSS 클래스 적용 */}
+    <div className="login-container">
       <h1>Login Page</h1>
       {error && <p style={{ color: 'red' }}>{error}</p>}
       <div>
@@ -28,6 +47,8 @@ function Login({ onLogin }) {
         <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} />
       </div>
       <button onClick={handleLogin}>Login</button>
+      <Link to="/signup">Signup</Link>
+      <button>Forgot Password</button>
     </div>
   );
 }
