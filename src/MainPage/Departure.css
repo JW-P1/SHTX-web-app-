@@ -1,0 +1,57 @@
+.departure-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    height: 100vh; /* 전체 화면 높이를 사용 */
+    width: 100%;
+    background-color: #8a2be2; /* 배경색 설정 (예시로 사용한 색상) */
+    overflow: hidden; /* 넘치는 콘텐츠 숨김 */
+  }
+  
+  #departure-map {
+    width: 100%;
+    height: calc(100vh - 120px); /* 도착지 설정 UI를 제외한 높이 */
+    border: 1px solid #ddd;
+    flex-grow: 1; /* 가능한 공간을 지도에 할당 */
+  }
+  
+  .departure-info {
+    background-color: white;
+    padding: 15px;
+    width: 100%;
+    text-align: center;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    margin: 0;
+    height: 150px; /* 고정 높이 설정 */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .departure-button {
+    padding: 10px 20px;
+    background-color: #fc3f65;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    margin-left: 10px;
+  }
+  .departure-container .back-button {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%; /* 원형 버튼 */
+    background-color: rgba(255, 255, 255, 0.9); /* 약간의 투명도 있는 배경색 */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* 그림자 추가 */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2000; /* 지도 위에 나타나도록 설정 */
+    cursor: pointer;
+    transition: background-color 0.3s; /* 배경색 전환 애니메이션 */
+  }

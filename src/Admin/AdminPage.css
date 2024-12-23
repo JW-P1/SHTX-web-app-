@@ -1,0 +1,140 @@
+/* AdminPage.css */
+
+/* 전체 컨테이너 */
+.admin-page {
+    padding: 20px;
+  }
+  /* 헤더 바 스타일 */
+  .admin-page .header-bar {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+.admin-page.back-button {
+  position: absolute; /* 헤더 바 내에서 절대 위치 */
+  left: 0; /* 왼쪽에 배치 */
+  border: none;
+  color: #fc3f65;
+  padding: 8px 12px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+}
+.admin-page .back-button:hover {
+  background-color: #e63556;
+}
+
+.admin-page .header-bar h2 {
+  margin: 0;
+  font-size: 24px;
+  color: #333;
+  text-align: center; /* 텍스트를 가운데로 정렬 */
+}
+  /* 검색 컨테이너 */
+  .admin-page .search-container1 {
+    margin-bottom: 20px;
+  }
+  
+  .admin-page .search-container1 input {
+    width: 100%;
+    padding: 8px;
+    font-size: 16px;
+  }
+  
+  /* 메인 콘텐츠 레이아웃 */
+  .admin-page .main-content {
+    display: flex;
+  }
+  
+  /* 채팅방 리스트 */
+  .admin-page .chat-room-list {
+    flex: 1;
+    margin-right: 20px;
+  }
+  
+  .admin-page .chat-room-table,
+  .admin-page .participant-table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  .admin-page .chat-room-table th,
+  .admin-page .chat-room-table td,
+  .admin-page .participant-table th,
+  .admin-page .participant-table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+  }
+  
+  .admin-page .chat-room-table tr:hover,
+  .admin-page .participant-table tr:hover {
+    background-color: #f1f1f1;
+  }
+  
+  .admin-page .chat-room-table tr.selected {
+    background-color: #fc3f65;
+    color: white;
+  }
+  
+  /* 채팅방 상세 정보 */
+  .admin-page .chat-room-details {
+    flex: 2;
+  }
+  
+  .admin-page .chat-room-details h3 {
+    margin-top: 0;
+  }
+  
+  .admin-page .close-room-button,
+  .admin-page .remove-participant-button {
+    background-color: #fc3f65;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    cursor: pointer;
+  }
+  
+  .admin-page .close-room-button {
+    margin-bottom: 20px;
+  }
+  
+  /* 채팅 내역 스타일 */
+  .admin-page .chat-history {
+    max-height: 300px;
+    overflow-y: auto;
+    border: 1px solid #ddd;
+    padding: 10px;
+  }
+  
+  .admin-page .message-item {
+    border-bottom: 1px solid #eee;
+    padding: 5px 0;
+  }
+  
+  .admin-page .message-time {
+    font-size: 12px;
+    color: #999;
+  }
+  
+  .admin-page .bold-text {
+    font-weight: bold;
+  }
+  
+  /* 반응형 디자인을 위한 추가 스타일 */
+  @media screen and (max-width: 768px) {
+    .admin-page .main-content {
+      flex-direction: column;
+    }
+  
+    .admin-page .chat-room-list {
+      margin-right: 0;
+      margin-bottom: 20px;
+    }
+  
+    .admin-page .chat-room-details {
+      flex: none;
+    }
+  }
+  

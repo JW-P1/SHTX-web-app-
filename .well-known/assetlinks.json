@@ -1,0 +1,13 @@
+[
+    {
+      "relation": ["delegate_permission/common.handle_all_urls"],
+      "target": {
+        "namespace": "android_app",
+        "package_name": "com.cookandroid.webapp1",
+        "sha256_cert_fingerprints": [
+          "SHA256: DB:38:0A:88:30:B0:BC:DD:EC:AF:88:0C:1C:73:DF:7B:80:6A:3F:C5:28:FC:15:07:80:E0"
+        ]
+      }
+    }
+  ]
+  

@@ -1,0 +1,56 @@
+/* 전체 페이지 컨테이너 */
+.rating-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  font-family: Arial, sans-serif;
+}
+
+.rating-container h2 {
+  font-size: 24px;
+  font-weight: bold;
+  color: #fc3f65; /* 메인 포인트 색상 */
+  margin-bottom: 20px;
+}
+
+.rating-container .user-rating {
+  width: 100%;
+  max-width: 400px;
+  padding: 15px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background-color: #ffffff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+.rating-container .user-rating h3 {
+  font-size: 18px;
+  color: #333333;
+  margin-bottom: 10px;
+}
+
+.rating-container .user-rating .rating-stars {
+  margin-top: 10px;
+}
+
+.rating-button {
+  width: 100%;
+  max-width: 400px;
+  padding: 12px;
+  font-size: 16px;
+  font-weight: bold;
+  color: #ffffff;
+  background-color: #fc3f65; /* 버튼 색상 */
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  margin-top: 20px;
+}
+
+.rating-button:hover {
+  background-color: #e04a4a;
+}

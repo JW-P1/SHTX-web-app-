@@ -1,67 +1,131 @@
-/* 콘테이너를 화면의 가운데로 정렬 */
-html, body {
+/* login.css */
+
+body, html {
   height: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  font-family: Arial, sans-serif;
+  overflow: hidden; /* 브라우저 스크롤 없애기 */
 }
 
-/* 기본 스타일 */
+#root {
+  height: 100%;
+}
+
+/* 전체 화면을 가득 채우는 컨테이너 */
 .login-container {
-  max-width: 400px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100vw;
+  height: 100vh;
+  background-color: white; /* 부드러운 배경색 */
+  box-sizing: border-box;
   padding: 20px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  background-color: #f0f0f0; /* 배경색 회색 */
 }
 
-.login-container h1 {
-  text-align: center;
-}
-
-.login-container div {
+/* 상단 로고 텍스트 */
+.logo {
+  font-size: 36px;
+  font-weight: 800;
+  color: #fc3f65; /* 메인 색상 */
   margin-bottom: 10px;
+  font-family: 'Poppins', sans-serif;
+  position: absolute;
+  top: 10%;
 }
 
-.login-container label {
-  display: block;
-  margin-bottom: 5px;
+/* Welcome 텍스트 */
+.welcome-text {
+  font-size: 18px;
+  color: #b0b0b0; /* 연한 회색 */
+  margin-bottom: 40px;
+  font-family: 'Poppins', sans-serif;
+  position: absolute;
+  top: 17%; /* 로고 바로 밑에 위치 */
 }
 
-.login-container input[type="text"],
-.login-container input[type="password"] {
-  width: 100%;
-  padding: 8px;
-  font-size: 16px;
+/* 아이디와 비밀번호 입력 필드 그룹 */
+.input-group {
+  width: 80%;
+  max-width: 400px;
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid #ddd; /* 하단에만 경계선 */
+  margin-bottom: 20px;
+  padding-bottom: 5px;
 }
 
-.login-container button {
-  width: 100%;
-  padding: 10px;
-  font-size: 16px;
-  background-color: #333; /* 버튼 배경색 연한 검정색 */
-  color: #fff;
+.input-icon {
+  color: #999; /* 연한 회색 아이콘 */
+  font-size: 1.5rem;
+  display: inline-block; /* 명시적으로 인라인 블록으로 설정 */
+  width: 30px; /* 아이콘 크기에 맞게 고정 */
+  text-align: center; /* 아이콘을 수평 가운데 정렬 */
+}
+
+/* 입력 필드 */
+.input-group .input-field {
   border: none;
-  border-radius: 5px;
+  outline: none;
+  flex: 1;
+  padding: 11px;
+  font-size: 16px;
+  color: #333;
+}
+
+/* 입력 필드 placeholder 스타일 */
+.input-field::placeholder {
+  color: #bbb; /* 연한 회색 텍스트 */
+}
+
+
+/* 로그인 버튼 */
+.login-button {
+  width: 80%;
+  max-width: 400px;
+  padding: 15px;
+  background-color: #fc3f65;
+  color: white;
+  border: none;
+  border-radius: 25px;
+  font-size: 18px;
+  font-weight: bold;
   cursor: pointer;
+  transition: background-color 0.3s;
+  margin-top: 25px;
 }
 
-.login-container button:hover {
-  background-color: #555; /* 마우스 호버시 색상 변화 */
+.login-button:hover {
+  background-color: #e04a4a;
 }
 
-.login-container a {
-  display: block;
-  text-align: center;
+/* 회원가입 버튼 */
+.signup-button {
+  width: 80%;
+  max-width: 400px;
+  padding: 15px;
+  background-color: #ddd;
+  color: #333;
+  border: none;
+  border-radius: 25px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s;
   margin-top: 10px;
-  color: #033a76;
 }
 
-/* 작은 화면에 대한 스타일 */
-@media only screen and (max-width: 600px) {
-  .login-container {
-    max-width: 300px;
-  }
+.signup-button:hover {
+  background-color: #ccc;
 }
 
+/* 아이디 / 비밀번호 찾기 링크 */
+.forgot-password {
+  margin-top: 10px;
+  color: #fc3f65;
+  text-decoration: none;
+  font-size: 14px;
+}
 
+.forgot-password:hover {
+  text-decoration: underline;
+}
